@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: white;
+  color: #000;
+}
+
+.page {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+}
+
+/* Хедер */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 80px;
+  margin-right: 12px;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 48px;
+  color: #8A4BE9;
+}
+
+/* Кнопки Войти / Зарегистрироваться */
+.header-buttons {
+  display: flex;
+  gap: 24px;
+  margin-right: 20px;
+}
+
+.header-buttons .login {
+  border: 3px solid #6C57D4;
+  color: #6C57D4;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.header-buttons .register {
+  background: #6C57D4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Заголовок */
+.subtitle {
+  position: absolute;
+  top: 155px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6B7280;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.title {
+  position: absolute;
+  top: 202px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  max-width: 2000px;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.description {
+  position: absolute;
+  top: 340px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6B7280;
+  font-size: 28px;
+  text-align: center;
+  max-width: 1400px;
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Кнопки */
+.buttons {
+  position: absolute;
+  top: 450px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 24px;
+}
+
+.create-btn {
+  background: #6C57D4;
+  width: 396x;
+  height: 77x;
+  color: white;
+  border: none;
+  padding: 18px 16px;
+  font-size: 36px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  height: 56px; 
+  white-space: nowrap; 
+}
+
+.example-btn {
+  background: white;
+  width: 400x;
+  height: 60x;
+  border: 2px solid #6C57D4;
+  color: #6C57D4;
+  padding: 12px 24px;
+  font-size: 36px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+
+}
+
+/* Иконки в кнопках */
+.btn-icon {
+  width: 41px;
+  height: 41px;
+  object-fit: contain;
+  vertical-align: middle;
+}
