@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: white;
+  color: #000;
+}
+
+.page {
+  position: relative;
+  width: 1440px;
+  min-height: 1024px;
+}
+
+/* Хедер */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 80px;
+  margin-right: 12px;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 48px;
+  color: #8A4BE9;
+}
+
+h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 110px;
+  font-size: 48px;
+  color: #000;
+  margin: 0;
+}
+
+/* Кнопка "О событии" */
+.done {
+  padding: 8px 8px;
+  position: absolute;
+  left:527px;
+  background: #6C57D4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  width: 161px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
