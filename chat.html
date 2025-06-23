@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1440" />
+  <title>Сообщения</title>
+  <link rel="stylesheet" href="soobsh.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Логотип" class="logo-img" />
+        <span>Eventika</span>
+      </div>
+      <div class="header-icons">
+        <img src="kalen.png" alt="Мероприятия" id="iconEvents"/>
+        <img src="soobsh.png" alt="Чат" id="iconChat"/>
+        <img src="home.png" alt="Главная" id="iconHome"/>
+        <img src="profile.png" alt="Профиль"id="iconProfile" />
+      </div>
+    </header>
+
+    <h1>Сообщения</h1>
+    <div class="event-list" id="eventList">
+      <div class="event-page" data-page="1">
+        <div class="event" data-title="Ночь кино">
+          <div class="event-text">
+            <h2 class="movie-title">Ночь кино</h2>
+          <button class="done">О событии</button>
+        </div>
+
+
+
+<script>
+    document.getElementById('iconEvents').addEventListener('click', () => {
+  window.location.href = 'meropriatia.html';
+});
+
+document.getElementById('iconChat').addEventListener('click', () => {
+  window.location.href = 'chat.html';
+});
+</script>
