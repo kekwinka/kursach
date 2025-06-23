@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1440" />
+  <title>Мероприятия</title>
+  <link rel="stylesheet" href="mer.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Логотип" class="logo-img" />
+        <span>Eventika</span>
+      </div>
+      <div class="header-icons">
+        <img src="kalen.png" alt="Мероприятия" id="iconEvents"/>
+        <img src="soobsh.png" alt="Чат" id="iconChat"/>
+        <img src="home.png" alt="Главная" id="iconHome"/>
+        <img src="profile.png" alt="Профиль"id="iconProfile" />
+      </div>
+    </header>
+
+    <h1>Мероприятия</h1>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Поиск" />
+    </div>
+
+    <div class="event-list" id="eventList">
+      <div class="event-page" data-page="1">
+        <div class="event" data-title="Ночь кино">
+          <div class="event-text">
+            <h2 class="movie-title">Ночь кино</h2>
+            <div class="author">
+              <img src="sasha.jpg" class="avatar" />
+              <h3 class="imena">Маша</h3>
+            </div>
+            <div class="status ended">Голосование завершено</div>
+          </div>
+          <button class="done">Детали</button>
+        </div>
+
+        <div class="event" data-title="Выходные в горах">
+          <div class="event-text">
+            <h2 class="movie-title">Выходные в горах</h2>
+            <div class="author">
+              <img src="sasha.jpg" class="avatar" />
+              <h3 class="imena">Анна</h3>
+            </div>
+            <div class="status active">Идёт голосование</div>
+          </div>
+          <button class="done">Детали</button>
+        </div>
+
+        <div class="event" data-title="День рождения">
+          <div class="event-text">
+            <h2 class="movie-title">День рождения</h2>
+            <div class="author">
+              <img src="sasha.jpg" class="avatar" />
+              <h3 class="imena">Марк</h3>
+            </div>
+            <div class="status active">Идёт голосование</div>
+          </div>
+          <button class="done">Детали</button>
+        </div>
+
+        <div class="event" data-title="Вечер настольных игр">
+          <div class="event-text">
+            <h2 class="movie-title">Вечер настольных игр</h2>
+            <div class="author">
+              <img src="sasha.jpg" class="avatar" />
+              <h3 class="imena">Руслан</h3>
+            </div>
+            <div class="status active">Идёт голосование</div>
+          </div>
+          <button class="done">Детали</button>
+        </div>
+      </div>
+
+      <div class="event-page" data-page="2" style="display: none;">
+        <p style="font-size: 20px; color: #6B7280;">На этой странице пока нет мероприятий.</p>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <span class="prev-page">&larr;</span>
+      <span class="page-link active">1</span>
+      <span class="page-link">2</span>
+      <span>...</span>
+      <span class="page-link">5</span>
+      <span class="next-page">&rarr;</span>
+    </div>
+  </div>
+
+  <!-- Панель деталей мероприятия -->
+  <div id="details-panel" class="details-panel hidden">
+    <button class="close-button">
+      <img src="Arrow Right.png" alt="Закрыть" />
+    </button>
+    <h2 class="movie-titlee"></h2>
+    <p class="movie-description"></p>
+
+    <p class="choice-title date-title">Проголосуйте за дату</p>
+    <div class="choices date-choices"></div>
+
+    <p class="choice-title place-title">Проголосуйте за место</p>
+    <div class="choices place-choices"></div>
+
+    <p class="choice-title chat-title">Чат</p>
+    <div class="chat">
+      <div class="chat-messages"></div>
+      <div class="chat-input">
+          <input type="text" placeholder="Напишите что-то...">
+          <button class="send-btn"></button>
+      </div>
+    </div>
+
+    <button class="dones">Готово</button>
+    <div class="vote-right">
+      <img src="" alt="Иллюстрация" class="main-image" />
+    </div>
+  </div>
+
+  <script>
+    const userVotes = {};
+    const userChats = {};
+
+    const eventDetailsData = {
+      "Ночь кино": {
+        description: "Ночь кино в стиле 90-х! Классика, атмосфера и любимые фильмы из детства.",
+        image: "kini.png",
+        dates: [{ date: "20 июня", votes: 2 }, { date: "21 июня", votes: 5 }, { date: "22 июня", votes: 0 }],
+        places: [{ place: "Дом Лизы", votes: 3 }, { place: "Дом Руслана", votes: 4 }],
+        chat: [{ name: "Саша", avatar: "sasha.jpg", text: "Мне нужно будет в 8 выгулять собаку." }, { name: "Алина", avatar: "alina.jpg", text: "Давайте в 11, чтобы всем удобно было." }]
+      },
+      "Выходные в горах": {
+        description: "Отдых и приключения в горах с друзьями.",
+        image: "mountains.png",
+        dates: [{ date: "1 июля", votes: 3 }, { date: "2 июля", votes: 3 }],
+        places: [{ place: "Дом у озера", votes: 2 }, { place: "Гостиница в горах", votes: 5 }],
+        chat: [{ name: "Анна", avatar: "sasha.jpg", text: "Кто берет снаряжение?" }, { name: "Иван", avatar: "alina.jpg", text: "Я беру палатки и спальники." }]
+      },
+      "День рождения": {
+        description: "Празднование моего дня рождения!",
+        image: "dr.png",
+        dates: [{ date: "10 июля", votes: 2 }, { date: "11 июля", votes: 1 }, { date: "12 июля", votes: 3 }],
+        places: [{ place: "Кафе", votes: 3 }, { place: "Лофт", votes: 2 }],
+        chat: [{ name: "Маша", avatar: "sasha.jpg", text: "Я точно не смогу в субботу." }]
+      },
+      "Вечер настольных игр": {
+        description: "Приносите любимые игры, будет весело!",
+        image: "monopoly.png",
+        dates: [{ date: "15 июля", votes: 2 }, { date: "16 июля", votes: 1 }],
+        places: [{ place: "Дома у Ани", votes: 3 }, { place: "Лофт", votes: 2 }],
+        chat: [{ name: "Анна", avatar: "sasha.jpg", text: "У меня есть монополия и бункер." }]
+      }
+    };
+
+    function renderChoices(container, choices, selectedValue) {
+      container.innerHTML = '';
+      choices.forEach(choice => {
+        const label = choice.date || choice.place;
+        const div = document.createElement('div');
+        div.className = 'choice';
+        div.innerHTML = `${label}<br><span>${choice.votes} голосов</span>`;
+        if (label === selectedValue) div.classList.add('selected');
+        div.dataset.value = label;
+        container.appendChild(div);
+      });
+
+      container.querySelectorAll('.choice').forEach(c => {
+        c.addEventListener('click', () => {
+          container.querySelectorAll('.choice').forEach(item => item.classList.remove('selected'));
+          c.classList.add('selected');
+        });
+      });
+    }
+
+    function renderChat(container, initialMessages = []) {
+      container.innerHTML = '';
+      const title = panel.getAttribute('data-current-title');
+      const savedMessages = userChats[title] || [];
+      const allMessages = [...initialMessages, ...savedMessages];
+
+      allMessages.forEach(msg => {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'chat-message';
+        msgDiv.innerHTML = `
+          <img src="${msg.avatar || 'avatar.png'}" class="avatar">
+          <div><strong>${msg.name || 'Вы'}</strong><p>${msg.text}</p></div>
+        `;
+        container.appendChild(msgDiv);
+      });
+
+      container.scrollTop = container.scrollHeight;
+    }
+
+    const panel = document.getElementById('details-panel');
+    const input = panel.querySelector('.chat-input input');
+    const sendBtn = panel.querySelector('.chat-input button');
+
+    document.querySelectorAll('.done').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const title = btn.closest('.event').getAttribute('data-title');
+        const data = eventDetailsData[title];
+        const saved = userVotes[title] || {};
+
+        panel.querySelector('.movie-titlee').textContent = title;
+        panel.querySelector('.movie-description').textContent = data.description;
+        panel.querySelector('.main-image').src = data.image;
+
+        renderChoices(panel.querySelector('.date-choices'), data.dates, saved.date);
+        renderChoices(panel.querySelector('.place-choices'), data.places, saved.place);
+        renderChat(panel.querySelector('.chat-messages'), data.chat);
+
+        panel.setAttribute('data-current-title', title);
+        panel.classList.remove('hidden');
+      });
+    });
+    input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && input.value.trim() !== '') {
+    sendBtn.click(); // Нажимаем кнопку программно
+    e.preventDefault(); // Чтобы не было перехода строки
+  }
+});
+
+    sendBtn.addEventListener('click', () => {
+      const text = input.value.trim();
+      if (!text) return;
+      const title = panel.getAttribute('data-current-title');
+      if (!userChats[title]) userChats[title] = [];
+      userChats[title].push({ name: "Вы", avatar: "avatar.png", text });
+      renderChat(panel.querySelector('.chat-messages'), eventDetailsData[title].chat);
+      input.value = '';
+    });
+
+    document.querySelector('.dones').addEventListener('click', () => {
+      const title = panel.getAttribute('data-current-title');
+      const selectedDate = panel.querySelector('.date-choices .selected')?.dataset.value;
+      const selectedPlace = panel.querySelector('.place-choices .selected')?.dataset.value;
+      if (!userVotes[title]) userVotes[title] = {};
+      if (selectedDate) userVotes[title].date = selectedDate;
+      if (selectedPlace) userVotes[title].place = selectedPlace;
+      panel.classList.add('hidden');
+    });
+
+    document.querySelector('.close-button').addEventListener('click', () => {
+      panel.classList.add('hidden');
+    });
+
+    // Пагинация
+    const pageLinks = document.querySelectorAll('.page-link');
+    const pages = document.querySelectorAll('.event-page');
+    function showPage(pageNumber) {
+      pages.forEach(p => p.style.display = p.dataset.page == pageNumber ? 'flex' : 'none');
+      pageLinks.forEach(link => link.classList.toggle('active', parseInt(link.textContent) === pageNumber));
+    }
+    pageLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        showPage(parseInt(link.textContent));
+      });
+    });
+    showPage(1);
+
+    // Поиск
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      document.querySelectorAll('.event').forEach(event => {
+        const title = event.getAttribute('data-title').toLowerCase();
+        event.style.display = title.includes(query) ? 'flex' : 'none';
+      });
+    });
+     document.getElementById('iconEvents').addEventListener('click', () => {
+  window.location.href = 'meropriatia.html';
+});
+
+document.getElementById('iconChat').addEventListener('click', () => {
+  window.location.href = 'chat.html';
+});
+  </script>
+</body>
+</html>
