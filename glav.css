@@ -1,0 +1,108 @@
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    
+    /* Контейнер приложения */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    /* Боковая панель */
+    .sidebar {
+      width: 260px;
+      background-color: white;
+      padding: 30px 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Логотип */
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #6C57D4;
+      margin-bottom: 40px;
+      padding-left: 10px;
+    }
+    
+    /* Меню */
+    .menu-section {
+      margin-bottom: 30px;
+    }
+    
+    .menu-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6C57D4;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+      padding-left: 10px;
+    }
+    
+    .menu-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .menu-item {
+      padding: 12px 15px;
+      margin-bottom: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+    
+    .menu-item:hover {
+      background-color: #f0edfd;
+      color: #6C57D4;
+    }
+    
+    .menu-item.active {
+      background-color: #6C57D4;
+      color: white;
+    }
+    
+    .menu-item.main {
+      font-weight: 700;
+    }
+    
+    .submenu {
+      list-style: none;
+      padding-left: 20px;
+      margin-top: 5px;
+    }
+    
+    .submenu-item {
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 400;
+    }
+    
+    .submenu-item:hover {
+      background-color: #f0edfd;
+      color: #6C57D4;
+    }
+    
+    /* Основное содержимое */
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+    
+    /* Заголовок страницы */
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #000;
+    }
