@@ -1,31 +1,97 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Профиль</title>
   <link rel="stylesheet" href="prof.css" />
 </head>
 <body>
-  <div class="profile-container">
-    <h1>Профиль</h1>
-    
-    <div class="profile-field">
-      <label>Имя</label>
-      <input type="text" value="Алиса">
+
+  <div class="page">
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Логотип" class="logo-img" />
+        <span>Eventika</span>
+      </div>
+      <div class="header-icons">
+        <img src="kalen.png" alt="Мероприятия" id="iconEvents"/>
+        <img src="soobsh.png" alt="Чат" id="iconChat"/>
+        <img src="home.png" alt="Главная" id="iconHome"/>
+        <img src="profile.png" alt="Профиль" id="iconProfile" />
+      </div>
+    </header>
+
+    <div class="profile-container">
+      <h1>Профиль</h1>
+
+      <div class="profile-content-from-center">
+        <div class="avatar-section">
+          <img src="your-avatar.jpg" alt="Аватар" id="avatar-preview">
+          <input type="file" accept="image/*" id="avatar-upload">
+        </div>
+
+        <div class="profile-field">
+          <label>Имя</label>
+          <div class="input-with-icon">
+            <input type="text" value="Алиса">
+            <img class="edit-icon" src="izmenit.png" alt="Изменить">
+          </div>
+        </div>
+
+        <div class="profile-field">
+          <label>Почта</label>
+          <div class="input-with-icon">
+            <input type="email" value="AlliseTrue@gmail.com">
+            <img class="edit-icon" src="izmenit.png" alt="Изменить">
+          </div>
+        </div>
+
+        <div class="profile-field">
+          <label>Телефон</label>
+          <div class="input-with-icon">
+            <input type="tel" value="+7-999-999-99-99">
+            <img class="edit-icon" src="izmenit.png" alt="Изменить">
+          </div>
+        </div>
+
+        <button class="save-btn">Сохранить</button>
+      </div>
     </div>
-    
-    <div class="profile-field">
-      <label>Почта</label>
-      <input type="email" value="AlliseTrue@gmail.com">
-    </div>
-    
-    <div class="profile-field">
-      <label>Телефон</label>
-      <input type="tel" value="+7-999-999-99-99">
-    </div>
-    
-    <button class="save-btn">Сохранить</button>
-  </div>
+  </div> <!-- Закрытие .page -->
+
+  <script>
+    // Загрузка аватара и предпросмотр
+    const avatarUpload = document.getElementById('avatar-upload');
+    const avatarPreview = document.getElementById('avatar-preview');
+
+    avatarUpload.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          avatarPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Переходы по иконкам
+    document.getElementById('iconEvents').addEventListener('click', () => {
+      window.location.href = 'meropriatia.html';
+    });
+
+    document.getElementById('iconChat').addEventListener('click', () => {
+      window.location.href = 'chat.html';
+    });
+
+    document.getElementById('iconHome').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('iconProfile').addEventListener('click', () => {
+      window.location.href = 'prof.html';
+    });
+  </script>
 </body>
 </html>
