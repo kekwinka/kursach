@@ -24,18 +24,22 @@
 
     /* Заголовок */
     h1 {
-      font-size: 28px;
+      font-size: 40px;
       font-weight: 600;
+     
       margin: 0 0 16px 0;
       color: #000000;
+      white-space: nowrap; 
     }
 
     /* Подзаголовок */
     .subtitle {
-      font-size: 16px;
+      font-size: 24px;
+     
       color: #555555;
       margin: 0 0 32px 0;
       line-height: 1.5;
+       white-space: nowrap; 
     }
 
     /* Группы полей ввода */
@@ -105,7 +109,7 @@
       color: white;
       border: none;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 24px;
       font-weight: 500;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
@@ -115,31 +119,3 @@
     .register-btn:hover {
       background-color: #5A46B5;
     }
-
-    /* Адаптация для мобильных устройств */
-    @media (max-width: 480px) {
-      .register-container {
-        padding: 30px 20px;
-      }
-      
-      h1 {
-        font-size: 24px;
-        margin-bottom: 16px;
-      }
-      
-      .subtitle {
-        font-size: 14px;
-        margin-bottom: 24px;
-      }
-      
-      .input-group input {
-        padding: 10px 14px;
-        font-size: 15px;
-      }
-      
-      .register-btn {
-        padding: 12px;
-        font-size: 15px;
-      }
-    }
- 
