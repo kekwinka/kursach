@@ -1,5 +1,4 @@
-
-    body {
+ body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: white;
@@ -12,18 +11,52 @@
       box-sizing: border-box;
     }
 
+    .page {
+  position: relative;
+  width: 1440px;
+  min-height: 1024px;
+}
+
+/* Хедер */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 80px;
+  margin-right: 12px;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 48px;
+  color: #8A4BE9;
+}
+
     /* Основной контейнер профиля */
     .profile-container {
-      width: 100%;
-      max-width: 450px;
-      padding: 40px;
-      background: #FFFFFF;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-    }
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  max-width: none;
+  border-radius: 0;
+}
 
     /* Заголовок */
     h1 {
+        position: absolute;
+         left: 45%;  
+         top:110px;
       font-size: 28px;
       font-weight: 600;
       margin: 0 0 32px 0;
@@ -102,3 +135,50 @@
         font-size: 15px;
       }
     }
+    /* Секция аватара */
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.avatar-section img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #6C57D4;
+}
+
+.avatar-section input[type="file"] {
+  font-size: 14px;
+}
+
+/* Иконка "изменить" рядом с полем */
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-with-icon input {
+  flex-grow: 1;
+}
+
+.edit-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.profile-content-from-center {
+  position: absolute;
+  top: 160px;         /* ниже заголовка "Профиль" */
+  left: 40%;          /* от середины экрана */
+  transform: translateX(0); /* НЕ -50%! */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
