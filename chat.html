@@ -17,27 +17,95 @@
         <img src="kalen.png" alt="Мероприятия" id="iconEvents"/>
         <img src="soobsh.png" alt="Чат" id="iconChat"/>
         <img src="home.png" alt="Главная" id="iconHome"/>
-        <img src="profile.png" alt="Профиль"id="iconProfile" />
+        <img src="profile.png" alt="Профиль" id="iconProfile" />
       </div>
     </header>
-
     <h1>Сообщения</h1>
-    <div class="event-list" id="eventList">
-      <div class="event-page" data-page="1">
-        <div class="event" data-title="Ночь кино">
-          <div class="event-text">
-            <h2 class="movie-title">Ночь кино</h2>
-          <button class="done">О событии</button>
+
+    <main class="chat-container">
+      <aside class="event-list">
+        <div class="event active">
+          <img src="kini.png" alt="Ночь кино" />
+          <div>
+            <div class="event-title">Ночь кино</div>
+            <div class="event-participants">7 участников</div>
+          </div>
+        </div>
+        <div class="event">
+          <img src="monopoly.png" alt="Вечер настольных игр" />
+          <div>
+            <div class="event-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Вечер настольных игр</div>
+            <div class="event-participants">5 участников</div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="messages-section">
+        <div class="section-header">
+          <button class="event-button">О событии</button>
         </div>
 
+        <div class="chat-messages">
+          <div class="chat-message">
+            <img src="sasha.jpg" class="avatar" alt="Саша">
+            <div>
+              <strong>Саша</strong>
+              <p>Мне нужно будет в 8 выгулять собаку, поэтому прошу выбрать другое время.</p>
+            </div>
+          </div>
 
+          <div class="chat-message">
+            <img src="alina.jpg" class="avatar" alt="Алина">
+            <div>
+              <strong>Алина</strong>
+              <p>Давайте в 11, чтобы всем удобно было.</p>
+            </div>
+          </div>
+        </div>
 
-<script>
+        <div class="chat-input">
+          <input type="text" placeholder="Напишите что-то..." />
+          <button class="send-btn"></button>
+        </div>
+
+        <div class="divider-line"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+
+    document.querySelector('.event-button').addEventListener('click', function () {
+    window.location.href = 'meropriatia.html';
+  });
+
     document.getElementById('iconEvents').addEventListener('click', () => {
-  window.location.href = 'meropriatia.html';
-});
+      window.location.href = 'meropriatia.html';
+    });
 
-document.getElementById('iconChat').addEventListener('click', () => {
-  window.location.href = 'chat.html';
-});
-</script>
+    document.getElementById('iconChat').addEventListener('click', () => {
+      window.location.href = 'chat.html';
+    });
+
+    document.querySelector('.send-btn').addEventListener('click', function () {
+    const input = document.querySelector('.chat-input input');
+    const message = input.value.trim();
+
+    if (message !== '') {
+      const chatMessages = document.querySelector('.chat-messages');
+
+      const newMessage = document.createElement('div');
+      newMessage.classList.add('chat-message');
+
+      newMessage.innerHTML = `
+        <img class="avatar" src="alina.png" alt="Ваш аватар">
+        <div>${message}</div>
+      `;
+
+      chatMessages.appendChild(newMessage);
+      input.value = '';
+    }
+  });
+  </script>
+</body>
+</html>
